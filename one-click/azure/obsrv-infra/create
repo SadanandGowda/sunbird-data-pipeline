@@ -1,0 +1,7 @@
+terraform apply
+echo "$(terraform output kube_config)" > ~/z/aks.yaml
+cat ~/z/aks.yaml
+sed -i '' '1d; $d' ~/z/aks.yaml
+export KUBECONFIG=~/z/aks.yaml
+export KUBE_CONFIG_PATH=~/z/aks.yaml
+terraform apply
